@@ -35,6 +35,33 @@ echo "<br>------------------------------------------------ <br>";
 
 echo multiply(2,4,10);//answer=80 - default param is overridden
 
+echo "<br>------------------------------------------------ <br>";
+
+// function factorail($n){
+//     $f = 1;
+//     while($n > 1){
+
+
+//     }
+//     return $f;
+// }
+
+// echo "factorial: ",0,"= ",factorail(0),"\n";
+function factorail($n){
+  if($n <=0) {
+    return 1;
+}
+else{
+    $result = factorail($n-1)*$n;
+}
+return $result;
+}
+
+echo "factorial: ",0," = ",factorail(0),"| \n";
+echo "factorial: ",3," = ",factorail(3),"| \n";
+echo "factorial: ",5," = ",factorail(5),"| \n";
+
+
 
 
 ?>
