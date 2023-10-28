@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>Register | WebDev Workshop</title>
+</head>
+
+<body>
+  <div class="container ">
+    <form action="" method="post">
+
+      <!-- Header -->
+      <div class="py-5 text-center">
+        <h1>WebDev Workshop Registration Form</h1>
+      </div>
+
+      <!-- Personal Details -->
+      <h5>Personal Details</h5>
+      <hr class="mb-4">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="fName">First Name</label>
+          <input type="text" class="form-control" id="fName" placeholder="Sithum" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lName">Last Name</label>
+          <input type="text" class="form-control" id="lName" placeholder="Yasiru" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="company">Company / Institute</label>
+          <input type="text" class="form-control" id="company" placeholder="OpenArc Campus" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea type="text" class="form-control" id="address" placeholder="Kalubowila, Dehiwala" /></textarea>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <div class="d-block my-1">
+          <div class="custom-control custom-radio">
+            <input id="male" name="gender" type="radio" class="custom-control-input" checked="" required="">
+            <label class="custom-control-label" for="male">Male</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="female" name="gender" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="female">Female</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+          <div class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="contact">Contact Number</label>
+          <input type="text" class="form-control" id="contact" placeholder="076 7854321" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="workshopType">Workshop Type</label>
+          <select id="workshopType" class="form-control">
+            <option value="react">React</option>
+            <option value="vuejs">VueJS</option>
+            <option value="nextjs">NextJS</option>
+            <option value="tailwind">Tailwind CSS</option>
+          </select>
+        </div>
+      </div>
+      <hr class="mb-4">
+
+      <!-- Time Frame -->
+      <div class="form-row">
+        <h5 for="workshopType">Avilable Time Frame</h5>
+        <table class="table ">
+          <!-- <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Weekday</th>
+              <th scope="col">Saturday</th>
+              <th scope="col">Sunday</th>
+            </tr>
+          </thead> -->
+          <tbody>
+            <tr>
+              <th>Anytime</td>
+              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Weekday</td>
+              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Saturday</td>
+              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Sunday</td>
+            </tr>
+            <tr>
+              <th>8.30AM - 12.30PM</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Weekday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Saturday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Sunday</td>
+            </tr>
+            <tr>
+              <th>1.00PM - 5.00PM</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Weekday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Saturday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Sunday</td>
+            </tr>
+            <tr>
+              <th>5.30PM - 8.30PM</td>
+
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Weekday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Saturday</td>
+              <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">Sunday</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Payment -->
+      <hr class="mb-4">
+      <h5 class="mb-3">Payment</h5>
+      <div class="form-row">
+        <div class="d-block my-1">
+          <div class="custom-control custom-radio">
+            <input id="card" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+            <label class="custom-control-label" for="card">Card Payment</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="bankTransfer" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="bankTransfer">Bank Transfer</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="cash">Cash Payment</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-group">
+        <hr class="mb-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Register</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
