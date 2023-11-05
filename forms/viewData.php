@@ -23,9 +23,9 @@ $result = mysqli_query($conn, $sql);
 //   echo "Error deleting record: " . mysqli_error($conn);
 // }
 
-if(isset($_POST['delete']) ){
-    $sql = "DELETE FROM contactus WHERE id='$id";
-}
+// if(isset($_POST['']) ){
+//     $sql = "DELETE FROM contactus WHERE id='$id";
+// }
 
 mysqli_close($conn);
 ?>
@@ -36,7 +36,6 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- CSS FOR STYLING THE PAGE -->
     <style>
         table {
             margin: 0 auto;
@@ -51,7 +50,6 @@ mysqli_close($conn);
         }
  
         td {
-            /* background-color: #E4F5D4; */
             border: 1px solid black;
         }
  
@@ -80,22 +78,18 @@ mysqli_close($conn);
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <!-- PHP CODE TO FETCH DATA FROM ROWS -->
             <?php 
-                // LOOP TILL END OF DATA
                 while($row = mysqli_fetch_assoc($result)) {
                    
             ?>
             <tr>
-                <!-- FETCHING DATA FROM EACH
-                    ROW OF EVERY COLUMN -->
-                <td><?php echo $row['id'];?></td>
-                <td><?php echo $row['name'];?></td>
-                <td><?php echo $row['email'];?></td>
-                <td><?php echo $row['mobile'];?></td>
-                <td><?php echo $row['msg'];?></td>
-                <td><button>Edit</button></td>
-                <td><a href='delete.php?id=".$row['id']."'>Delete</a> </td>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['email'] ?></td>
+                <td><?php echo $row['mobile'] ?></td>
+                <td><?php echo $row['msg'] ?></td>
+                <td><?php echo "<a href='update.php?id=".$row['id']."'>Update</a>" ?></td>
+                <td><?php echo "<a href='delete.php?id=".$row['id']."'>Delete</a>" ?></td>
             </tr>
             <?php
                 }

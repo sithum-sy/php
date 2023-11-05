@@ -1,6 +1,9 @@
 <?php
 require 'db.php';
 
+$sql = "SELECT * FROM contactus";
+$result = mysqli_query($conn, $sql);
+
 if(isset($_POST['submit']) ){
     
     $name = $_POST["name"];
