@@ -1,8 +1,8 @@
 <?php
 
 class Car{
-    public $name;
-    public $color;
+    private $name;
+    private $color;
 
    function __construct($name,$color)
    {
