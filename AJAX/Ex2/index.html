@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Enter Marks</label><input type="text" id="marks" />
+    <div id="demo">
+
+    </div>
+    <button type="button" onclick="find()">Find</button>
+
+    <script>
+        function find() {
+
+            let marks = parseInt(document.getElementById("marks").value);
+
+            if (!marks) {
+                alert("Please Enter Marks...");
+                return false;
+            }
+
+
+            // Create an XMLHttpRequest object
+            const xhttp = new XMLHttpRequest();
+
+            // Define a callback function
+            xhttp.onload = function () {
+                document.getElementById("demo").innerHTML = "Result: " + this.responseText;
+            }
+
+            // Open the XMLHttpRequest object
+            xhttp.open("GET", "find.php?m=" + marks, true);
+            // Send a Request to a server
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
