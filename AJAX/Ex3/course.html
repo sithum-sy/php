@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Course Details</title>
-<style>
-#coursedetails {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 80%;
-}
+  <title>Course Details</title>
+  <style>
+    #coursedata {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+    }
 
-#coursedetails td, #coursedetails th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+    #coursedata td,
+    #coursedata th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
 
-#coursedetails tr:nth-child(even){background-color: #f2f2f2;}
+    #coursedata tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
-#coursedetails tr:hover {background-color: #ddd;}
+    #coursedata tr:hover {
+      background-color: #ddd;
+    }
 
-#coursedetails th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-</style>
+    #coursedata th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      /* background-color: #04AA6D; */
+      color: rgb(12, 12, 12);
+    }
+  </style>
 </head>
+
 <body>
 
-<label>Select Course :</label>
-<select onchange="display(this.value)">
-	<option >-------</option>
-	<option value="acad">AutoCAD</option>
-	<option value="excel">MS Excel</option>
-	
-</select>
+  <label>Select Course :</label>
+  <select onchange="display(this.value)">
+    <option>-------</option>
+    <option value="web01">React</option>
+    <option value="web02">NodeJS</option>
 
-<br>
-<br>
-<br>
-<br>
-<div id="demo">
-</div>
+  </select>
 
-<script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="demo">
+  </div>
 
-function display(id){
+  <script>
 
-  const xhttp = new XMLHttpRequest();
-  
-  xhttp.onload = function() {
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
-  
-  xhttp.open("GET", "course_details.php?id="+id,true);
-  xhttp.send();
+    function display(courseID) {
+
+      const xhttp = new XMLHttpRequest();
+
+      xhttp.onload = function () {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+
+      xhttp.open("GET", "course_details.php?courseID=" + courseID, true);
+      xhttp.send();
 
 
-}
+    }
 
-</script>
+  </script>
 
 </body>
+
 </html>

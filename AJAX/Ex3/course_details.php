@@ -1,17 +1,17 @@
 <?php
 require_once 'db.php';
 
-$id=$_GET['id'];
+$id=$_GET['courseID'];
 
 
-$sql = "SELECT * FROM course_details WHERE c_id='".$id."'";
+$sql = "SELECT * FROM coursedata WHERE courseID='".$id."'";
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
  
-	echo "<table id='coursedetails'>";
+	echo "<table id='coursedata'>";
 	echo "<tr>
 			<th>Course Name </th>
 			<th>Course Duration </th>
@@ -20,10 +20,10 @@ if ($result->num_rows > 0) {
 		  </tr>";
   while($row = $result->fetch_assoc()) {
 	echo "<tr>
-				<td>".$row["c_name"]."</td>
-				<td>".$row["c_duration"]."</td>
-				<td>".$row["c_fee"]."</td>
-				<td>".$row["c_startdate"]."</td>
+				<td>".$row["courseName"]."</td>
+				<td>".$row["courseDuration"]."</td>
+				<td>".$row["courseFee"]."</td>
+				<td>".$row["courseStartDate"]."</td>
 		 </tr>";
   }
   

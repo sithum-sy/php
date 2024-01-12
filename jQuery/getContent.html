@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                alert("Text: " + $("#test").text());
+            });
+            $("#btn2").click(function () {
+                alert("HTML: " + $("#test").html());
+            });
+            $("#btn3").click(function () {
+                let marks = $("#marks").val();
+                if (marks > 50) {
+                    alert("Marks = " + marks + " Pass");
+                } else {
+                    alert("Marks = " + marks + " Fail");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>How to get content using jQuery?</h1>
+
+    <p id="test">This is show how to <b>capture</b> content</p>
+    <input type="text" id="marks">
+
+    <button id="btn1">Capture Text</button>
+    <button id="btn2">Capture HTML</button>
+    <button id="btn3">Capture Input</button>
+</body>
+
+</html>

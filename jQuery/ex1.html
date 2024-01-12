@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test1").hide();
+            });
+            $("#btn2").click(function () {
+                $(".test2").hide();
+            });
+            $("#btn3").click(function () {
+                $("*").hide();
+            });
+            $("#btn4").mouseover(function () {
+                $(".test3").toggle("slow");
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>jQuery Testing</h1>
+
+    <p id="test1">This is to test jQuery id selector</p>
+    <p class="test2">This is to test jQuery class selector</p>
+    <p class="test3">Point the cursor to hide me</p>
+
+    <button id="btn1">Hide id selector</button>
+    <button id="btn2">Hide class selector</button>
+    <button id="btn3">Hide All</button>
+    <button id="btn4">Mouseover</button>
+
+</body>
+
+</html>
