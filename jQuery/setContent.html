@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test").text("Hello new text!!!");
+            });
+            $("#btn2").click(function () {
+                $("#test").html("<i>Hello new text!!!</i>");
+            });
+            $("#btn3").click(function () {
+                $("#marks").val("90");
+
+            });
+            $("#btn4").click(function () {
+                $("img").attr("src", "Google_Chrome.png");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>How to set content using jQuery?</h1>
+
+    <p id="test">This is show how to <b>capture</b> content</p>
+    <input type="text" id="marks">
+
+    <img src="FirefoxLogo.png" alt="logo" width="100px" height="100px">
+    <br>
+    <br>
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Input</button>
+    <button id="btn4">Set Image</button>
+
+</body>
+
+</html>

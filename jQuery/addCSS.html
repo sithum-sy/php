@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            color: green;
+            background-color: aquamarine;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test").addClass("box");
+            });
+            $("#btn2").click(function () {
+                $("#test").removeClass("box");
+            });
+            $("#btn3").click(function () {
+                $("#test").toggleClass("box");
+            });
+            $("#btn4").click(function () {
+                $("#test").css({
+                    "color": "white",
+                    "background-color": "black",
+                    "font-family": "Verdana"
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="test">
+        <h1>This is a CSS test</h1>
+    </div>
+    <br>
+    <button id="btn1">Add CSS</button>
+    <button id="btn2">Remove CSS</button>
+    <button id="btn3">Toggle CSS</button>
+    <button id="btn4">Change CSS</button>
+
+
+</body>
+
+</html>

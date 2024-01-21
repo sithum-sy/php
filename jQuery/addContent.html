@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test").append(" - Hello new text!!!");
+            });
+            $("#btn2").click(function () {
+                $("#test").prepend(" Prepended Text - ");
+            });
+            $("#btn3").click(function () {
+                $("#test").after(" After the text");
+            });
+            $("#btn4").click(function () {
+                $("#test").before(" Before the text ");
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <h2 id="test">This is a heading</h2>
+    <br>
+    <br>
+
+    <button id="btn1">Append Text</button>
+    <button id="btn2">Prepend Text</button>
+    <button id="btn3">After</button>
+    <button id="btn4">Before</button>
+
+</body>
+
+</html>
