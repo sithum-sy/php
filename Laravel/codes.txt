@@ -1,0 +1,34 @@
+---------Laravel project initialisation-----------
+
+composer create-project --prefer-dist laravel/laravel test-project
+
+php artisan serve
+
+
+---------Next steps-----------
+
+composer require laravel/ui --dev
+
+php artisan ui bootstrap --auth
+
+npm install
+
+npm run dev
+
+
+php artisan migrate
+
+
+composer dump-autoload
+composer update
+composer remove pkg-name
+
+
+
+
+HW
+views/auth/register.blade.php
+    change name to first_name
+    add last_name
+
+app/http/auth/ - try to understand

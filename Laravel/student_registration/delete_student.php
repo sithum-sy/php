@@ -6,12 +6,12 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 
-if(isset($_POST['id'])) {
+if (isset($_POST['id'])) {
 
     require_once "db_connection.php";
 
     $stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("i", $id);   //i-integer
     $id = $_POST['id'];
 
     if ($stmt->execute()) {
@@ -28,4 +28,3 @@ if(isset($_POST['id'])) {
     header("Location: home.php?error=id_not_set");
     exit;
 }
-?>
