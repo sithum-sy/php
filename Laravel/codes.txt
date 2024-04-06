@@ -32,3 +32,5 @@ views/auth/register.blade.php
     add last_name
 
 app/http/auth/ - try to understand
+
+Draw sketches for login/ admin panel/ author panel/ user panel
