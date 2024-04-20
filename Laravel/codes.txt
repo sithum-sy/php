@@ -34,11 +34,3 @@ views/auth/register.blade.php
     add last_name
 
 app/http/auth/ - try to understand
-
-
-auth routes - login, logout, password reset,register
-
-
-
-
-make form in register form in the new project
