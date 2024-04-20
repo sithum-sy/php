@@ -23,7 +23,9 @@ composer dump-autoload
 composer update
 composer remove pkg-name
 
+php artisan make:controller TestController
 
+php artisan make:view test/test-view
 
 
 HW
@@ -32,3 +34,11 @@ views/auth/register.blade.php
     add last_name
 
 app/http/auth/ - try to understand
+
+
+auth routes - login, logout, password reset,register
+
+
+
+
+make form in register form in the new project
