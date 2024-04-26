@@ -1,6 +1,6 @@
 ---------Laravel project initialisation-----------
 
-composer create-project --prefer-dist laravel/laravel test-project
+composer create-project --prefer-dist laravel/laravel test-project-01
 
 php artisan serve
 
