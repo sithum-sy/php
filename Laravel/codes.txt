@@ -28,6 +28,22 @@ php artisan make:controller TestController
 php artisan make:view test/test-view
 
 
+
+create a model - php artisan make:model Movie
+
+create a table migration - php artisan make:migration create_movies_table
+
+to create the db table - php artisan migrate
+
+to drop the latest db table - php artisan migrate:rollback
+
+to make a controller - php artisan make:controller MovieController
+
+
+
+
+
+
 HW
 views/auth/register.blade.php
     change name to first_name
