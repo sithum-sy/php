@@ -935,7 +935,9 @@ dark:focus-visible:ring-white">
             @endif
         </header>
     </div>
-    <h1>Laravel Project 01</h1>
+    <h1>Laravel Project 01</h1><br>
+    <a href="{{ route('movies.all') }}" style="color: green;">View Movies</a><br>
+    <a href="{{ route('movies.create') }}" style="color: red;">Create a Movie</a>
 </body>
 
 </html>

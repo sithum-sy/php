@@ -1,0 +1,13 @@
+
+Model - Handles data logic. Interacts with db
+
+Views -
+
+Controllers - 
+
+Blade files - 
+
+Eloqent - 
+
+Migrations occur in batches. So that in a rollback, whole batch is rollbacked
+

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +26,9 @@ Route::get('/test-parameters/id/{id}', [App\Http\Controllers\TestParametersContr
 Route::get('/test-many-params/{id}/{name}', [App\Http\Controllers\TestParametersController::class, 'testManyURLParams']);
 
 Route::get('/test-view/{name}', [App\Http\Controllers\TestViewController::class, 'loadTestView']);
+
+Route::get('/movie', [MovieController::class, 'index'])->name('movies.all');
+
+Route::get('/movie/create', [MovieController::class, 'create'])->name('movies.create');
+
+Route::post('/movie/store', [MovieController::class, 'store'])->name('movies.store');

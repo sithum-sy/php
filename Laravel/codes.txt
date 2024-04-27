@@ -58,4 +58,6 @@ auth routes - login, logout, password reset,register
 
 
 
-make form in register form in the new project
+make form in register form in the new project-publication project
+
+
