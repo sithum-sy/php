@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ControllerExample;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,13 @@ Route::get('/movie', [MovieController::class, 'index'])->name('movies.all');
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movies.create');
 
 Route::post('/movie/store', [MovieController::class, 'store'])->name('movies.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/example', [ControllerExample::class, 'exampleView']);
+
+Route::get('/exampleParam/{name}', [ControllerExample::class, 'exampleViewParam']);
+
+Route::get('/example-view', [ControllerExample::class, 'exampleTestView']);

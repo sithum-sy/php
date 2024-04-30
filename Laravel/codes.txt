@@ -2,6 +2,8 @@
 
 composer create-project --prefer-dist laravel/laravel test-project-01
 
+//after pulling from git - composer install
+
 php artisan serve
 
 
