@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ControllerExample;
+use App\Http\Controllers\GameController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,3 +44,7 @@ Route::get('/example', [ControllerExample::class, 'exampleView']);
 Route::get('/exampleParam/{name}', [ControllerExample::class, 'exampleViewParam']);
 
 Route::get('/example-view', [ControllerExample::class, 'exampleTestView']);
+
+Route::get('/game/{name}', [GameController::class, 'exampleGame']);
+
+Route::get('/game-view', [GameController::class, 'exampleGame']);
