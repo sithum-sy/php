@@ -47,19 +47,9 @@ to make a controller - php artisan make:controller MovieController
 
 
 HW
-views/auth/register.blade.php
-    change name to first_name
-    add last_name
+how to edit error msg shwon?
+Request classes
+Write validation rules
 
-app/http/auth/ - try to understand
-app/http/auth/ - try to understand
-
-
-auth routes - login, logout, password reset,register
-
-
-
-
-make form in register form in the new project-publication project
 
 
