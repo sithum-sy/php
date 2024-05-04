@@ -51,5 +51,7 @@ how to edit error msg shwon?
 Request classes
 Write validation rules
 
+pub - name/author/ISBN/published date/cover(file upload)
+
 
 
