@@ -47,11 +47,15 @@ to make a controller - php artisan make:controller MovieController
 
 
 HW
-how to edit error msg shwon?
+how to edit error msg shown?
 Request classes
 Write validation rules
 
 pub - name/author/ISBN/published date/cover(file upload)
+
+
+
+https://www.webslesson.info/2020/01/larvel-6-store-retrieve-images-from-mysql-database.html
 
 
 

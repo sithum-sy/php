@@ -52,6 +52,14 @@ dark:focus-visible:ring-white">
                 <button type="button" onclick="location.href='{{ route('register') }}'" class="btn btn-success btn-lg px-4">Register</button>
 
                 @endif
+
+                @if (Route::has('publication-register'))
+
+                <button type="button" onclick="location.href='{{ route('publication-register') }}'" class="btn btn-info btn-lg px-4">Publication Register</button>
+
+                @endif
+
+
                 @endauth
                 @endif
             </div>
