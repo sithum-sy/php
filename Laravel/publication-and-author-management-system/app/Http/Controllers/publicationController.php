@@ -35,6 +35,7 @@ class publicationController extends Controller
         $publication = Publication::create([
             'pub_name' => $request->pub_name,
             'author' => $request->author,
+            'category' => 'fiction',
             'isbn' => $request->isbn,
             'published_date' => $request->published_date,
             'cover_picture' => $request->cover_picture,

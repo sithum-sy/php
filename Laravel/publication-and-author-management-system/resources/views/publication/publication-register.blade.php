@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="isbn" class="col-md-4 col-form-label text-md-end">{{ __('Dropdown') }}</label>
+                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
                                 <!-- <input id="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ old('isbn') }}" required autocomplete="isbn" autofocus>
@@ -89,21 +89,18 @@
                                 @enderror -->
 
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Dropdown button
+                                    <button id="category" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" autofocus>
+                                        Select Category
                                     </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                    <ul class="dropdown-menu dropdown-menu-light">
                                         <li><a class="dropdown-item active" href="#">Action</a></li>
                                         <li><a class="dropdown-item" href="#">Another action</a></li>
                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
                                         <li><a class="dropdown-item" href="#">Separated link</a></li>
                                     </ul>
                                 </div>
 
-                                @error('isbn')
+                                @error('category')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

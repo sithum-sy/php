@@ -55,12 +55,12 @@ to seed - php artisan db:seed
 
 
 HW
-How to edit a validation msg
-write a validaton to accept only age<15 people to register
+How to edit a validation msg - done
+write a validaton to accept only age<15 people to register - done
 
-create category model. Fillables - name
+create category model. Fillables - name - done
 publication categories migration - name-string, required / id(check users migration)
-create seeder- categoriesSeeder. Edit dbSeeder
+create seeder- categoriesSeeder. Edit dbSeeder - done
 
 
 https://www.webslesson.info/2020/01/larvel-6-store-retrieve-images-from-mysql-database.html
