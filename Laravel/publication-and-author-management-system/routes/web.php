@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\publicationController;
+use App\Http\Controllers\PublicationController;
 
 
 Route::get('/', function () {
@@ -16,6 +16,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/publication-register', [publicationController::class, 'registerPublication'])->name('publication-register');
+Route::get('/publication-register', [PublicationController::class, 'registerPublication'])->name('publication-register');
 
-Route::post('/publication-register/store', [publicationController::class, 'store'])->name('publication.store');
+Route::post('/publication-register/store', [PublicationController::class, 'store'])->name('publication.store');

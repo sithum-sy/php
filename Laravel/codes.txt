@@ -42,17 +42,25 @@ to drop the latest db table - php artisan migrate:rollback
 to make a controller - php artisan make:controller MovieController
 
 
+create a table migration with altered table - php artisan make:migration add_roles_column_to_users_table
+
+to make a seeder - php artisan make:seeder AdminUsersSeeder
+
+to seed - php artisan db:seed
+
+
+
 
 
 
 
 HW
-how to edit error msg shown?
-Request classes
-Write validation rules
+How to edit a validation msg
+write a validaton to accept only age<15 people to register
 
-pub - name/author/ISBN/published date/cover(file upload)
-
+create category model. Fillables - name
+publication categories migration - name-string, required / id(check users migration)
+create seeder- categoriesSeeder. Edit dbSeeder
 
 
 https://www.webslesson.info/2020/01/larvel-6-store-retrieve-images-from-mysql-database.html

@@ -77,6 +77,43 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="isbn" class="col-md-4 col-form-label text-md-end">{{ __('Dropdown') }}</label>
+
+                            <div class="col-md-6">
+                                <!-- <input id="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ old('isbn') }}" required autocomplete="isbn" autofocus>
+
+                                @error('isbn')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror -->
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown button
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item active" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+
+                                @error('isbn')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="cover_picture" class="col-md-4 col-form-label text-md-end">{{ __('Cover Picture') }}</label>
 
                             <div class="col-md-6">

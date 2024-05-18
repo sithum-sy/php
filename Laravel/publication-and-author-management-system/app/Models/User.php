@@ -11,6 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    const USER_ROLE_ADMIN = 'admin';
+    const USER_ROLE_AUTHOR = 'author';
+    const USER_ROLE_READER = 'reader';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'role',
         'email',
         'phone_number',
         'date_of_birth',
