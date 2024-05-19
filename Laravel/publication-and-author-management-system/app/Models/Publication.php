@@ -12,8 +12,14 @@ class publication extends Model
     protected $fillable = [
         'pub_name',
         'author',
+        'category_id',
         'isbn',
         'published_date',
         'cover_picture',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

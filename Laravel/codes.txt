@@ -48,6 +48,8 @@ to make a seeder - php artisan make:seeder AdminUsersSeeder
 
 to seed - php artisan db:seed
 
+to create a symbolic link - php artisan storage:link
+
 
 
 
@@ -57,6 +59,7 @@ to seed - php artisan db:seed
 HW
 How to edit a validation msg - done
 write a validaton to accept only age<15 people to register - done
+file upload - done
 
 create category model. Fillables - name - done
 publication categories migration - name-string, required / id(check users migration)

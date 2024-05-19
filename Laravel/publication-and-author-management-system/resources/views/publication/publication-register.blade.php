@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
                                 <!-- <input id="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ old('isbn') }}" required autocomplete="isbn" autofocus>
@@ -89,7 +89,7 @@
                                 @enderror -->
 
                                 <div class="dropdown">
-                                    <button id="category" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" autofocus>
+                                    <!-- <button id="category" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" autofocus>
                                         Select Category
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-light">
@@ -97,10 +97,17 @@
                                         <li><a class="dropdown-item" href="#">Another action</a></li>
                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                                         <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                    </ul>
+                                    </ul> -->
+
+                                    <select class="form-control" id="category_id" name="category_id" required>
+                                        <option value="">Select Category</option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
-                                @error('category')
+                                @error('category_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

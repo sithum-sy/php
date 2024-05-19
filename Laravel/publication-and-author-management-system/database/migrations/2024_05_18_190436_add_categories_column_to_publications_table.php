@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->string('category')->default('fiction')->after('author');
+            $table->string('category')->after('author');
+            // ->default('fiction')
         });
     }
 

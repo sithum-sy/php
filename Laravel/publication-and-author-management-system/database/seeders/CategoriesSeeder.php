@@ -17,18 +17,25 @@ class CategoriesSeeder extends Seeder
     {
         $category = [
             [
+                'id' => 1,
                 'name' => 'Fiction',
 
             ],
             [
+                'id' => 2,
+
                 'name' => 'Non-Fiction',
 
             ],
             [
+                'id' => 3,
+
                 'name' => 'Romance',
 
             ],
             [
+                'id' => 4,
+
                 'name' => 'Research',
 
             ],

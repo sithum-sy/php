@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Publication;
+use App\Models\Category;
 
 class publicationController extends Controller
 {
     public function registerPublication()
     {
-        return view('publication/publication-register');
+        $categories = Category::all();
+        return view('publication/publication-register', compact('categories')); //Passing Data: Using compact, the data is passed to the view.
     }
 
     public function store(Request $request)
@@ -22,6 +24,7 @@ class publicationController extends Controller
         $validator = Validator::make($requestData, [
             'pub_name' => ['required', 'string', 'max:100'],
             'author' => ['required', 'string', 'max:100'],
+            'category_id' => 'required|exists:categories,id',
             'isbn' => ['required', 'string', 'max:100'],
             'published_date' => ['required', 'date'],
             'cover_picture' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
@@ -42,7 +45,7 @@ class publicationController extends Controller
         $publication = Publication::create([
             'pub_name' => $request->pub_name,
             'author' => $request->author,
-            'category' => 'fiction',
+            'category_id' => $request->category_id,
             'isbn' => $request->isbn,
             'published_date' => $request->published_date,
             'cover_picture' => $fileName

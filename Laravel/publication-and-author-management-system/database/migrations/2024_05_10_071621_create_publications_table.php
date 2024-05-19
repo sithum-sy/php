@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('pub_name');
             $table->string('author');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('isbn');
             $table->date('published_date');
             $table->string('cover_picture')->nullable();
