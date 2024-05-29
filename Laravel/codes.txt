@@ -39,6 +39,8 @@ to create the db table - php artisan migrate
 
 to drop the latest db table - php artisan migrate:rollback
 
+to migrate a specific table - php artisan migrate --path=database/migrations/2024_05_1_185936_create_categories_table.php
+
 to make a controller - php artisan make:controller MovieController
 
 
@@ -56,7 +58,7 @@ to create a symbolic link - php artisan storage:link
 
 
 
-HW
+HomeWork
 How to edit a validation msg - done
 write a validaton to accept only age<15 people to register - done
 file upload - done
@@ -67,6 +69,5 @@ create seeder- categoriesSeeder. Edit dbSeeder - done
 
 
 https://www.webslesson.info/2020/01/larvel-6-store-retrieve-images-from-mysql-database.html
-
 
 

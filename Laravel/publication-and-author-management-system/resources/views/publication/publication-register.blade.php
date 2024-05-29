@@ -1,7 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- Link to the custom CSS file
+<link href="{{ asset('resources/css/app.css') }}" rel="stylesheet"> -->
+
+<style>
+    /* Background styles */
+    body {
+        /* background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100'); */
+        background-image: url('{{ asset("images/background/1.jpg") }}');
+        background-position: center;
+        background-size: auto;
+        height: 80vh;
+        display: flexbox;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Glassmorphism card effect */
+    .card-custom {
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: black;
+        /* Ensure text is visible on dark background */
+    }
+
+    /* Custom padding */
+    .custom-padding {
+        padding-top: 80px;
+        /* Adjust as needed */
+    }
+</style>
+<div class="container custom-padding">
     <div class="row justify-content-center">
         <div class="col-md-8">
 
@@ -11,7 +44,7 @@
             </div>
             @endif
 
-            <div class="card">
+            <div class="card card-custom">
                 <div class="card-header">
                     <h4>{{ __('Publication Registration') }}</h4>
                 </div>
