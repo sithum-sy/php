@@ -122,15 +122,6 @@
                                 @enderror -->
 
                                 <div class="dropdown">
-                                    <!-- <button id="category" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" autofocus>
-                                        Select Category
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-light">
-                                        <li><a class="dropdown-item active" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                    </ul> -->
 
                                     <select class="form-control" id="category_id" name="category_id" required>
                                         <option value="">Select Category</option>
