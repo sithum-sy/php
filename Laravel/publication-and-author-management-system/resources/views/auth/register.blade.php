@@ -40,7 +40,7 @@
         <div class="col-md-8">
             <div class="card card-custom">
                 <div class="card-header">
-                    <h4>{{ __('Author Registration') }}</h4>
+                    <h4>{{ __('User Registration') }}</h4>
                 </div>
 
                 <div class="card-body">

@@ -113,16 +113,7 @@
                             <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <!-- <input id="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ old('isbn') }}" required autocomplete="isbn" autofocus>
-
-                                @error('isbn')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror -->
-
                                 <div class="dropdown">
-
                                     <select class="form-control" id="category_id" name="category_id" required>
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
