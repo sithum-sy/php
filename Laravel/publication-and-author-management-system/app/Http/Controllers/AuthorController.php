@@ -34,11 +34,6 @@ class AuthorController extends Controller
             'gender' => ['required', 'string',],
         ]);
 
-        if ($validator->fails()) {
-
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
         $user = User::create([
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
@@ -59,13 +54,13 @@ class AuthorController extends Controller
 
         return redirect()->back()->with(
             'status',
-            'success'
+            'New Author was added successfully.'
         );
     }
 
     public function index()
     {
-        $authors = User::where('role', 'author')->get();
+        $authors = User::where('role', User::USER_ROLE_AUTHOR)->get();
         return view('authors.index', ['authors' => $authors]);
     }
 }

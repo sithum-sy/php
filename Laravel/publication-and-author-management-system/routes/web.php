@@ -22,7 +22,7 @@ Route::post('/publication-register/store', [PublicationController::class, 'store
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/author-register', [AuthorController::class, 'create'])->name('author.create');
-    Route::get('/author-register', [AuthorController::class, 'index'])->name('author.all');
     Route::post('/author-register/store', [AuthorController::class, 'store'])->name('author.store');
+    Route::get('/author-register/index', [AuthorController::class, 'index'])->name('author.all');
 });
 //authors
