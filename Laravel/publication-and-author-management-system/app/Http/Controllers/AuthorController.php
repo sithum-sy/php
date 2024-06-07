@@ -44,15 +44,15 @@ class AuthorController extends Controller
             'address' => $validatedData['address'],
             'gender' => $validatedData['gender'],
             'password' => Hash::make($validatedData['email']),
-            //    ' created_by'=>Auth::user()->id, //nullable
-            //     'is_active' => true, //default true
-            //    ' is_default_password_changed' => false, //default true
+            'created_by' => Auth::user()->id, //nullable
+            'is_active' => true, //default true
+            'is_default_password_changed' => false, //default true
             // is_active
             // is_default_password_changed
             // created_by
         ]);
 
-        return redirect()->back()->with(
+        return redirect()->route('author.all')->with(
             'status',
             'New Author was added successfully.'
         );
@@ -61,6 +61,12 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = User::where('role', User::USER_ROLE_AUTHOR)->get();
-        return view('authors.index', ['authors' => $authors]);
+        return view('authors/index', ['authors' => $authors]);
     }
+
+    // public function edit($id)
+    // {
+    //     $author = User::findOrFail($id);
+    //     return view('authors/edit-form', compact('author'));
+    // }
 }

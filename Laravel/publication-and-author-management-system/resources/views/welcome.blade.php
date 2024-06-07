@@ -68,9 +68,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('publication-register') }}">Publication Register</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -135,10 +133,6 @@ dark:focus-visible:ring-white">
                     <a href="{{ route('login') }}" class="btn btn-primary btn-lg mb-3 glassmorphism">Login</a>
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="btn btn-success btn-lg mb-3 glassmorphism">Register</a>
-                    @endif
-
-                    @if (Route::has('publication-register'))
-                    <a href="{{ route('publication-register') }}" class="btn btn-info btn-lg mb-3 glassmorphism">Publication Register</a>
                     @endif
 
 

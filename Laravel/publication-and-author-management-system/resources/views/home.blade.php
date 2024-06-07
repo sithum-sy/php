@@ -18,6 +18,11 @@
 
                 <div class="card-body">
                     <p>Welcome, Admin! Here are your administrative tasks.</p>
+                    <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author Form</a>
+                    <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
+
+
+
                     <!-- Add admin specific content here -->
                 </div>
             </div>
@@ -27,7 +32,7 @@
 
                 <div class="card-body">
                     <p>Welcome, Author! Here are your author tasks.</p>
-                    <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author Form</a>
+                    <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
 
                     <!-- Add author specific content here -->
                 </div>
