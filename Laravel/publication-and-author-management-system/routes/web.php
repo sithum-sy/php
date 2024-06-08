@@ -21,8 +21,9 @@ Route::get('/publication-register', [PublicationController::class, 'registerPubl
 Route::post('/publication-register/store', [PublicationController::class, 'store'])->name('publication.store');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/author-register', [AuthorController::class, 'create'])->name('author.create');
-    Route::get('/author-register', [AuthorController::class, 'index'])->name('author.all');
-    Route::post('/author-register/store', [AuthorController::class, 'store'])->name('author.store');
+    Route::get('/author-form', [AuthorController::class, 'create'])->name('author.create');
+    Route::post('/author-form/store', [AuthorController::class, 'store'])->name('author.store');
+    Route::get('/author-form/index', [AuthorController::class, 'index'])->name('author.all');
+    // Route::get('/author-form/{author}/edit', [AuthorController::class, 'edit'])->name('author.edit');
 });
 //authors

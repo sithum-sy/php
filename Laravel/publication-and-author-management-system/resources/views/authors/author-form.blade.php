@@ -8,6 +8,7 @@
                 <div class="col">
                     <h2 class="my-2 text-center">Create New Author</h2>
                     <div class="card-body">
+                        <!-- <form method="#" action="#"> -->
                         <form method="POST" action="{{ route('author.store') }}">
                             @csrf
 
@@ -116,9 +117,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-
-
 
 
                             <div class="row mb-0">

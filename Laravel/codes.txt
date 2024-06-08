@@ -68,7 +68,5 @@ publication categories migration - name-string, required / id(check users migrat
 create seeder- categoriesSeeder. Edit dbSeeder - done
 
 
-https://www.webslesson.info/2020/01/larvel-6-store-retrieve-images-from-mysql-database.html
-
 how to access by admin/user/author
 check names authors and author-register
