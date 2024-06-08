@@ -47,9 +47,7 @@ class AuthorController extends Controller
             'created_by' => Auth::user()->id, //nullable
             'is_active' => true, //default true
             'is_default_password_changed' => false, //default true
-            // is_active
-            // is_default_password_changed
-            // created_by
+
         ]);
 
         return redirect()->route('author.all')->with(
@@ -64,9 +62,15 @@ class AuthorController extends Controller
         return view('authors/index', ['authors' => $authors]);
     }
 
-    // public function edit($id)
-    // {
-    //     $author = User::findOrFail($id);
-    //     return view('authors/edit-form', compact('author'));
-    // }
+    public function view(int $id)
+    {
+        $author = User::findOrFail($id);
+        return view('authors.view', ['author' => $author]);
+    }
+
+    public function edit(int $id)
+    {
+        $author = User::findOrFail($id);
+        return view('authors/edit-form', compact('author'));
+    }
 }

@@ -47,8 +47,9 @@
                                 <td>{{ $author->phone_number }}</td>
                                 <td>{{ $author->gender }}</td>
                                 <td>
-                                    <!-- Example action buttons, adjust according to your requirements -->
-                                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                                    <!-- Action buttons -->
+                                    <a href="{{ route('author.view', $author->id) }}" class="btn btn-sm btn-primary">View</a>
+                                    <a href="{{ route('author.edit', $author->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="#" method="#" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')

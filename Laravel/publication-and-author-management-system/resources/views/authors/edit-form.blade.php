@@ -8,7 +8,7 @@
                 <div class="card-header">Edit Author</div>
 
                 <div class="card-body">
-                    <form action="{{ route('authors.update', $author->id) }}" method="POST">
+                    <form action="#" method="#">
                         @csrf
                         @method('PUT')
 
@@ -40,7 +40,7 @@
                             <label for="gender" class="form-label">Gender</label>
                             <!-- <input type="text" class="form-control" id="gender" name="gender" value="{{ $author->gender }}"> -->
 
-                            <input id="male" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ $author->gender }}">
+                            <input id="male" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ $author->gender }}" checked>
                             <label for="male">
                                 Male
                             </label>

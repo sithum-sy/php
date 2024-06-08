@@ -18,12 +18,10 @@
 
                 <div class="card-body">
                     <p>Welcome, Admin! Here are your administrative tasks.</p>
-                    <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author Form</a>
-                    <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
-
-
-
                     <!-- Add admin specific content here -->
+
+                    <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author</a>
+                    <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
                 </div>
             </div>
             @elseif (Auth::user()->role === 'author')
@@ -32,12 +30,13 @@
 
                 <div class="card-body">
                     <p>Welcome, Author! Here are your author tasks.</p>
+                    <!-- Add author specific content here -->
+
                     <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
 
-                    <!-- Add author specific content here -->
                 </div>
             </div>
-            @elseif (Auth::user()->role === 'reader')
+            @else (Auth::user()->role === 'reader')
             <div class="card">
                 <div class="card-header">User Section</div>
 
@@ -46,15 +45,7 @@
                     <!-- Add user specific content here -->
                 </div>
             </div>
-            @else
-            <div class="card">
-                <div class="card-header">Guest Section</div>
 
-                <div class="card-body">
-                    <p>Welcome! Please log in to access more features.</p>
-                    <!-- Add guest specific content here -->
-                </div>
-            </div>
             @endif
             @endauth
         </div>
