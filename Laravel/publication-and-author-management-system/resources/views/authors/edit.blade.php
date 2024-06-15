@@ -4,11 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('errors'))
+            <h3>Invalid Data</h3>
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header">Edit Author</div>
 
                 <div class="card-body">
-                    <form action="#" method="#">
+                    <form action="{{ route('author.update', $author->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -39,13 +47,13 @@
                         <div class="mb-3">
                             <label for="gender" class="form-label">Gender</label>
                             <!-- <input type="text" class="form-control" id="gender" name="gender" value="{{ $author->gender }}"> -->
-
-                            <input id="male" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ $author->gender }}" checked>
+                            <br>
+                            <input id="male" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ 'male' }}" {{ $author->gender == 'male' ? 'checked':''}} required autocomplete="gender" autofocus>
                             <label for="male">
                                 Male
                             </label>
 
-                            <input id="female" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ $author->gender }}" required autocomplete="gender" autofocus>
+                            <input id="female" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ 'female' }}" {{ $author->gender == 'female' ? 'checked':''}} required autocomplete="gender" autofocus>
                             <label for="male">
                                 Female
                             </label>

@@ -50,10 +50,10 @@
                                     <!-- Action buttons -->
                                     <a href="{{ route('author.view', $author->id) }}" class="btn btn-sm btn-primary">View</a>
                                     <a href="{{ route('author.edit', $author->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="#" method="#" style="display:inline-block;">
+                                    <form action="{{ route('author.delete', $author->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

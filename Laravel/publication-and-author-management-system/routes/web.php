@@ -26,4 +26,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/author-form/index', [AuthorController::class, 'index'])->name('author.all');
     Route::get('author-form/{id}/view', [AuthorController::class, 'view'])->name('author.view');
     Route::get('/author-form/{id}/edit', [AuthorController::class, 'edit'])->name('author.edit');
+    Route::put('/author-form/{id}', [AuthorController::class, 'update'])->name('author.update');
+    Route::delete('/author-form/{id}', [AuthorController::class, 'delete'])->name('author.delete');
 });

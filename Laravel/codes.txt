@@ -70,3 +70,10 @@ create seeder- categoriesSeeder. Edit dbSeeder - done
 
 how to access by admin/user/author
 check names authors and author-register
+
+
+category soft delete
+category view
+category - created by, add slug
+category crud
+active/inactive state
