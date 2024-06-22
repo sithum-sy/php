@@ -32,6 +32,7 @@
                                 <th scope="col">Address</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">Gender</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -46,6 +47,13 @@
                                 <td>{{ $author->address }}</td>
                                 <td>{{ $author->phone_number }}</td>
                                 <td>{{ $author->gender }}</td>
+                                <!-- <td>{{ $author->is_active ? 'Active' : 'Inactive' }}</td> -->
+                                @if($author->is_active)
+                                <td>Active</td>
+                                @else
+                                <td>Inactive</td>
+                                @endif
+
                                 <td>
                                     <!-- Action buttons -->
                                     <a href="{{ route('author.view', $author->id) }}" class="btn btn-sm btn-primary">View</a>
@@ -54,6 +62,12 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                    <form action="{{ route('author.toggleStatus', $author->id) }}" method="#" style="display:inline-block;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm {{ $author->is_active ? 'btn-secondary' : 'btn-success' }}">
+                                            {{ $author->is_active ? 'Deactivate' : 'Activate' }}
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

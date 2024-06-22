@@ -88,13 +88,13 @@ class CategoryController extends Controller
         );
     }
 
-    public function toggleStatus($id)
+    public function toggleStatus(int $id)
     {
         $category = Category::findOrFail($id);
 
-        $category->active = !$category->active;
+        $category->is_active = !$category->is_active;
         $category->save();
 
-        return redirect()->route('category.all')->with('status', 'Category status updated successfully.');
+        return redirect()->back()->with('status', 'Category status updated successfully.');
     }
 }

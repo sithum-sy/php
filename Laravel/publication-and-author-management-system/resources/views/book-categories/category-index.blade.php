@@ -35,7 +35,8 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
-                                <td>{{ $category->active ? 'Active' : 'Inactive' }}</td>
+                                <td>{{ $category->is_active ? 'Active' : 'Inactive' }}</td>
+
                                 <td>
                                     <!-- Action buttons -->
                                     <a href="{{ route('category.view', $category->slug) }}" class="btn btn-sm btn-primary">View</a>
@@ -46,12 +47,12 @@
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                     <!-- <a href="{{ route('category.toggleStatus', $category->id) }}">
-                                        {{ $category->active ? 'Deactivate' : 'Activate' }}
+                                        {{ $category->is_active ? 'Deactivate' : 'Activate' }}
                                     </a> -->
                                     <form action="{{ route('category.toggleStatus', $category->id) }}" method="#" style="display:inline-block;">
                                         @csrf
-                                        <button type="submit" class="btn btn-sm {{ $category->active ? 'btn-secondary' : 'btn-success' }}">
-                                            {{ $category->active ? 'Deactivate' : 'Activate' }}
+                                        <button type="submit" class="btn btn-sm {{ $category->is_active ? 'btn-secondary' : 'btn-success' }}">
+                                            {{ $category->is_active ? 'Deactivate' : 'Activate' }}
                                         </button>
                                     </form>
                                 </td>

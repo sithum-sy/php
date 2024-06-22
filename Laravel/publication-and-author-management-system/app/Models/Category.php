@@ -15,7 +15,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'created_by',
-        'active',
+        'is_active',
     ];
 
     public function publications()

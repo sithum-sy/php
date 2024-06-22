@@ -31,7 +31,9 @@ class User extends Authenticatable
         'address',
         'gender',
         'password',
-        'created_by'
+        'created_by',
+        'is_active',
+        'is_default_password_changed',
     ];
 
     /**

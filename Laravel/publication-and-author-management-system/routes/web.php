@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/author-form/{id}/edit', [AuthorController::class, 'edit'])->name('author.edit');
     Route::put('/author-form/{id}', [AuthorController::class, 'update'])->name('author.update');
     Route::delete('/author-form/{id}', [AuthorController::class, 'delete'])->name('author.delete');
+    Route::get('/author-form/toggle-status/{id}', [AuthorController::class, 'toggleStatus'])->name('author.toggleStatus');
 
     Route::get('/add-category', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/add-category/store', [CategoryController::class, 'store'])->name('category.store');

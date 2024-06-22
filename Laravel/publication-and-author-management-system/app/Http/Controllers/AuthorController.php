@@ -122,4 +122,14 @@ class AuthorController extends Controller
             'Author was deleted successfully.'
         );
     }
+
+    public function toggleStatus($id)
+    {
+        $author = User::findOrFail($id);
+
+        $author->is_active = !$author->is_active;
+        $author->save();
+
+        return redirect()->route('author.all')->with('status', 'Author status updated successfully.');
+    }
 }
