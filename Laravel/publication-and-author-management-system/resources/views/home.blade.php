@@ -19,35 +19,39 @@
                 <div class="card-body">
                     <p>Welcome, Admin! Here are your administrative tasks.</p>
                     <!-- Add admin specific content here -->
-
-                    <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author</a>
-                    <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
+                    <div>
+                        <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author</a>
+                        <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
+                    </div>
+                    <div>
+                        <a href="{{ route('category.create') }}" class="btn btn-primary btn-lg mb-3">Create Category</a>
+                        <a href="{{ route('category.all') }}" class="btn btn-primary btn-lg mb-3">View Category</a>
+                    </div>
                 </div>
-            </div>
-            @elseif (Auth::user()->role === 'author')
-            <div class="card">
-                <div class="card-header">Author Section</div>
+                @elseif (Auth::user()->role === 'author')
+                <div class="card">
+                    <div class="card-header">Author Section</div>
 
-                <div class="card-body">
-                    <p>Welcome, Author! Here are your author tasks.</p>
-                    <!-- Add author specific content here -->
+                    <div class="card-body">
+                        <p>Welcome, Author! Here are your author tasks.</p>
+                        <!-- Add author specific content here -->
 
-                    <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
+                        <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
 
+                    </div>
                 </div>
-            </div>
-            @else (Auth::user()->role === 'reader')
-            <div class="card">
-                <div class="card-header">User Section</div>
+                @else (Auth::user()->role === 'reader')
+                <div class="card">
+                    <div class="card-header">User Section</div>
 
-                <div class="card-body">
-                    <p>Welcome, User! Here is your content.</p>
-                    <!-- Add user specific content here -->
+                    <div class="card-body">
+                        <p>Welcome, User! Here is your content.</p>
+                        <!-- Add user specific content here -->
+                    </div>
                 </div>
-            </div>
 
-            @endif
-            @endauth
+                @endif
+                @endauth
+            </div>
         </div>
-    </div>
-    @endsection
+        @endsection

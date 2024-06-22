@@ -52,6 +52,41 @@ to seed - php artisan db:seed
 
 to create a symbolic link - php artisan storage:link
 
+ADDING SLUGS
+   1. composer require cviebrock/eloquent-sluggable
+   2. php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
+   3. php artisan make:migration add_slug_to_categories_table --table=categories
+   4. In the generated migration file, add the slug column: 
+        table->string('slug')->unique();
+   5. php artisan migrate
+   6. Configure the Model:
+        use Sluggable;
+   7. public function index()
+{
+    // Retrieve the categories with their slugs
+    $categories = Category::select('category_id', 'category_name', 'slug')->get();
+
+    // Pass the categories to the view
+    return view('book-categories.category-index', ['categories' => $categories]);
+}
+   8. <a href="{{ route('categories.show', $category->slug) }}">View Category</a>
+   9. Route::get('/categories/{slug}', [CategoryController::class, 'show'])->name('categories.show');
+  10. public function show($slug)
+{
+    // Find the category by slug
+    $category = Category::where('slug', $slug)->firstOrFail();
+
+    // Pass the category to the view
+    return view('book-categories.category-show', ['category' => $category]);
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -59,21 +94,9 @@ to create a symbolic link - php artisan storage:link
 
 
 HomeWork
-How to edit a validation msg - done
-write a validaton to accept only age<15 people to register - done
-file upload - done
 
-create category model. Fillables - name - done
-publication categories migration - name-string, required / id(check users migration)
-create seeder- categoriesSeeder. Edit dbSeeder - done
-
-
-how to access by admin/user/author
-check names authors and author-register
-
-
-category soft delete
-category view
-category - created by, add slug
-category crud
+category soft delete                    - done
+category view                           - done
+category - created by, add slug         - done
+category crud                           - done
 active/inactive state
