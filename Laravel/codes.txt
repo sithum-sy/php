@@ -100,3 +100,5 @@ category view                           - done
 category - created by, add slug         - done
 category crud                           - done
 active/inactive state
+
+remove authorname from publicationform and use authorid
