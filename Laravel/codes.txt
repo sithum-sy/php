@@ -95,10 +95,5 @@ ADDING SLUGS
 
 HomeWork
 
-category soft delete                    - done
-category view                           - done
-category - created by, add slug         - done
-category crud                           - done
-active/inactive state
-
 remove authorname from publicationform and use authorid
+add crud for publication
