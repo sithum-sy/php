@@ -44,6 +44,6 @@ class AdminUsersSeeder extends Seeder
 
         DB::table('users')->insert($admin);
 
-        //User::create($admin);    //for single record crations
+        //User::create($admin);    //for single record crations 
     }
 }
