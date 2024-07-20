@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Publication;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('home');
+
+        $publications = Publication::all();
+        // $categories = Category::find($id);
+        $publications = Publication::with('category')->get();
+        // dd($publications);
+        return view('home', ['publications' => $publications]);
     }
 }

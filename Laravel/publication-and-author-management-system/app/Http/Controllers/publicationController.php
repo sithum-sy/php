@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Publication;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class publicationController extends Controller
 {
@@ -23,7 +24,6 @@ class publicationController extends Controller
 
         $validator = Validator::make($requestData, [
             'pub_name' => ['required', 'string', 'max:100'],
-            'author' => ['required', 'string', 'max:100'],
             'category_id' => 'required|exists:categories,id',
             'isbn' => ['required', 'string', 'max:100'],
             'published_date' => ['required', 'date'],
@@ -44,7 +44,7 @@ class publicationController extends Controller
 
         $publication = Publication::create([
             'pub_name' => $request->pub_name,
-            'author' => $request->author,
+            'author_id' => Auth::id(),
             'category_id' => $request->category_id,
             'isbn' => $request->isbn,
             'published_date' => $request->published_date,

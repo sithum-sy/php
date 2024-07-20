@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
             $table->string('pub_name');
-            $table->string('author');
+            $table->string('author_id');
             $table->foreignId('category_id')->constrained('categories');
             $table->string('isbn');
             $table->date('published_date');
