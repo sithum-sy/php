@@ -99,3 +99,8 @@ remove authorname from publicationform and use authorid
 add crud for publication
 add profile section
 author can edit his profile/profile public
+class diagram for group project
+add image for author creation
+profile own edit
+like/comment models
+single publication view
