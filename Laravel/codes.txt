@@ -95,7 +95,6 @@ ADDING SLUGS
 
 HomeWork
 
-remove authorname from publicationform and use authorid
 add crud for publication
 add profile section
 author can edit his profile/profile public

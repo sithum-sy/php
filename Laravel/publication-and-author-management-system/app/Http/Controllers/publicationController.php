@@ -8,6 +8,7 @@ use App\Models\Publication;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
+
 class publicationController extends Controller
 {
     public function registerPublication()
@@ -54,6 +55,66 @@ class publicationController extends Controller
         return redirect()->back()->with(
             'success',
             'Record created successfully'
+        );
+    }
+
+    public function index($authorId)
+    {
+        $publications = Publication::where('author_id', $authorId)->with('author')->get();
+        return view('publication.index', ['publications' => $publications]);
+    }
+
+    public function edit(int $id)
+    {
+        $publication = Publication::findOrFail($id);
+        $categories = Category::all();
+        return view('publication.edit', ['publication' => $publication], compact('categories'));
+    }
+
+    public function update(int $id, Request $request)
+    {
+
+
+        $validatedData = $request->validate([
+            'pub_name' => ['required', 'string', 'max:100'],
+            'category_id' => 'required|exists:categories,id',
+            'isbn' => ['required', 'string', 'max:100'],
+            'published_date' => ['required', 'date'],
+            'cover_picture' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ]);
+
+        $publication = Publication::findOrFail($id);
+
+        if ($request->hasfile('cover_picture')) {
+            $file = $request->file('cover_picture');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extension;
+            $file->move(public_path('uploads/covers'), $fileName);
+
+            // Delete old image if exists
+            if ($publication->cover_picture && file_exists(public_path('uploads/covers/' . $publication->cover_picture))) {
+                unlink(public_path('uploads/covers/' . $publication->cover_picture));
+            }
+
+            $publication->cover_picture = $fileName;
+        }
+
+
+
+        $publication->pub_name = $validatedData['pub_name'];
+        $publication->category_id = $validatedData['category_id'];
+        $publication->isbn = $validatedData['isbn'];
+        $publication->published_date = $validatedData['published_date'];
+        // $publication->cover_picture = $validatedData['cover_picture'];
+        // $publication->gender = $validatedData['gender'];
+
+        //fix image upload
+
+        $publication->save();
+
+        return redirect()->route('publication.all', ['authorId' => Auth::id()])->with(
+            'status',
+            'Publication was updated successfully.'
         );
     }
 }

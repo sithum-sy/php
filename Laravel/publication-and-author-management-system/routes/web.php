@@ -18,8 +18,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/publication-register', [PublicationController::class, 'registerPublication'])->name('publication-register');
-Route::post('/publication-register/store', [PublicationController::class, 'store'])->name('publication.store');
+
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/author-form', [AuthorController::class, 'create'])->name('author.create');
@@ -39,4 +38,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('/category/{id}', [CategoryController::class, 'delete'])->name('category.delete');
     Route::get('/category/toggle-status/{id}', [CategoryController::class, 'toggleStatus'])->name('category.toggleStatus');
+
+    Route::get('/publication-register', [PublicationController::class, 'registerPublication'])->name('publication-register');
+    Route::post('/publication-register/store', [PublicationController::class, 'store'])->name('publication.store');
+    Route::get('/publication/author/{authorId}', [PublicationController::class, 'index'])->name('publication.all');
+    Route::get('publication/{id}/view', [PublicationController::class, 'view'])->name('publication.view');
+    Route::get('/publication/{id}/edit', [PublicationController::class, 'edit'])->name('publication.edit');
+    Route::put('/publication/{id}', [PublicationController::class, 'update'])->name('publication.update');
+    Route::delete('/publication/{id}', [PublicationController::class, 'delete'])->name('publication.delete');
+    Route::get('/publication/toggle-status/{id}', [PublicationController::class, 'toggleStatus'])->name('publication.toggleStatus');
 });

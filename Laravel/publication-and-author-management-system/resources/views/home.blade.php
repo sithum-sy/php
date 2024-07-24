@@ -37,6 +37,7 @@
                         <!-- Add author specific content here -->
 
                         <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
+                        <a href="{{ route('publication.all', ['authorId' => Auth::id()]) }}" class="btn btn-primary btn-lg mb-3">View Publication</a>
 
                     </div>
                 </div>
