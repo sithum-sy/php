@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,4 +48,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::put('/publication/{id}', [PublicationController::class, 'update'])->name('publication.update');
     Route::delete('/publication/{id}', [PublicationController::class, 'delete'])->name('publication.delete');
     Route::get('/publication/toggle-status/{id}', [PublicationController::class, 'toggleStatus'])->name('publication.toggleStatus');
+
+    Route::get('publication_user/{id}/view', [PublicationController::class, 'userSinglePubView'])->name('publication_user.view');
+    Route::post('publication_user/{publication}/like', [LikeController::class, 'toggleLike'])->name('publications_user.like');
+    Route::post('publication_user/{publication}/comments', [CommentController::class, 'storeComment'])->name('publications_user.comments');
 });

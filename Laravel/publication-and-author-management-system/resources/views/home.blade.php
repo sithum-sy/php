@@ -49,7 +49,8 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="h3">
-                                        {{ $publication->pub_name }}
+                                        <a href="{{ route('publication_user.view', $publication->id) }}">{{ $publication->pub_name }}</a>
+
                                     </div>
                                 </div>
                                 <div class="row">

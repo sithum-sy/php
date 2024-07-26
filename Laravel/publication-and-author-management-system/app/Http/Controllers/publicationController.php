@@ -134,4 +134,10 @@ class publicationController extends Controller
         $publication = Publication::findOrFail($id);
         return view('publication.view', ['publication' => $publication]);
     }
+
+    public function userSinglePubView(int $id)
+    {
+        $publication = Publication::findOrFail($id);
+        return view('publication_user.view', ['publication' => $publication]);
+    }
 }

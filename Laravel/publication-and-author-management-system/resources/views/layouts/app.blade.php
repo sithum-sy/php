@@ -13,12 +13,23 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <style>
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        .comment {
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+        }
+    </style>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- CSS -->
     @stack('css')
+
 
 </head>
 
