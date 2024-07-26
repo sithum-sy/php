@@ -30,7 +30,7 @@
                                 <th scope="col">ISBN</th>
                                 <th scope="col">Published Date</th>
                                 <th scope="col">Cover Picture</th>
-                                <th scope="col">Status</th>
+                                <!-- <th scope="col">Status</th> -->
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -44,7 +44,7 @@
                                 <td>{{ $publication->published_date }}</td>
                                 <td> <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Image Description" class="img-fluid" height="50" width="50">
                                 </td>
-                                <td>{{ $publication->is_active ? 'Active' : 'Inactive' }}</td>
+                                <!-- <td>{{ $publication->is_active ? 'Active' : 'Inactive' }}</td> -->
                                 <!-- @if($publication->is_active)
                                 <td>Active</td>
                                 @else
@@ -60,12 +60,12 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
-                                    <form action="{{ route('publication.toggleStatus', $publication->id) }}" method="#" style="display:inline-block;">
+                                    <!-- <form action="{{ route('publication.toggleStatus', $publication->id) }}" method="#" style="display:inline-block;">
                                         @csrf
                                         <button type="submit" class="btn btn-sm {{ $publication->is_active ? 'btn-secondary' : 'btn-success' }}">
                                             {{ $publication->is_active ? 'Deactivate' : 'Activate' }}
                                         </button>
-                                    </form>
+                                    </form> -->
                                 </td>
                             </tr>
                             @endforeach

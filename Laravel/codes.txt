@@ -95,10 +95,10 @@ ADDING SLUGS
 
 HomeWork
 
-add crud for publication
+add crud for publication - DONE
 add profile section
 author can edit his profile/profile public
-class diagram for group project
+class diagram for group project - DONE
 add image for author creation
 profile own edit
 like/comment models

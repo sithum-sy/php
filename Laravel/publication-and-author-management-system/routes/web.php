@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/category/toggle-status/{id}', [CategoryController::class, 'toggleStatus'])->name('category.toggleStatus');
 
     Route::get('/publication-register', [PublicationController::class, 'registerPublication'])->name('publication-register');
-    Route::post('/publication-register/store', [PublicationController::class, 'store'])->name('publication.store');
+    Route::post('/publication-register/store/', [PublicationController::class, 'store'])->name('publication.store');
     Route::get('/publication/author/{authorId}', [PublicationController::class, 'index'])->name('publication.all');
     Route::get('publication/{id}/view', [PublicationController::class, 'view'])->name('publication.view');
     Route::get('/publication/{id}/edit', [PublicationController::class, 'edit'])->name('publication.edit');

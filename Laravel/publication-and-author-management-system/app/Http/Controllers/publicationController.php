@@ -52,7 +52,7 @@ class publicationController extends Controller
             'cover_picture' => $fileName
         ]);
 
-        return redirect()->back()->with(
+        return redirect()->route('publication.all', ['authorId' => Auth::id()])->with(
             'success',
             'Record created successfully'
         );
@@ -116,5 +116,22 @@ class publicationController extends Controller
             'status',
             'Publication was updated successfully.'
         );
+    }
+
+    public function delete(int $id)
+    {
+        $publication = Publication::findOrFail($id);
+        $publication->delete();
+
+        return redirect()->route('publication.all', ['authorId' => Auth::id()])->with(
+            'status',
+            'Author was deleted successfully.'
+        );
+    }
+
+    public function view(int $id)
+    {
+        $publication = Publication::findOrFail($id);
+        return view('publication.view', ['publication' => $publication]);
     }
 }
