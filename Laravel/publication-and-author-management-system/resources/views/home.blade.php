@@ -18,7 +18,6 @@
 
                 <div class="card-body">
                     <p>Welcome, Admin! Here are your administrative tasks.</p>
-                    <!-- Add admin specific content here -->
                     <div>
                         <a href="{{ route('author.create') }}" class="btn btn-primary btn-lg mb-3">Create Author</a>
                         <a href="{{ route('author.all') }}" class="btn btn-primary btn-lg mb-3">View Authors</a>
@@ -34,7 +33,6 @@
 
                     <div class="card-body">
                         <p>Welcome, Author! Here are your author tasks.</p>
-                        <!-- Add author specific content here -->
 
                         <a href="{{ route('publication-register') }}" class="btn btn-primary btn-lg mb-3">Create Publication</a>
                         <a href="{{ route('publication.all', ['authorId' => Auth::id()]) }}" class="btn btn-primary btn-lg mb-3">View Publication</a>
@@ -42,71 +40,34 @@
                     </div>
                 </div>
                 @else (Auth::user()->role === 'reader')
-                <div class="row bg-light mx-2">
+                <div class="row bg-light mx-2 p-3">
+                    <h2 class="text-center mb-4">All Publications</h2>
                     @foreach ($publications as $publication)
-                    <div class="col-4 px-1 my-2">
-                        <div class="row mx-2 bg-white">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="h3">
-                                        <a href="{{ route('publication_user.view', $publication->id) }}">{{ $publication->pub_name }}</a>
-
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Image Description" class="img-fluid" height="50" width="50">
-                                </div>
-                                <div class="row">
-                                    <div class="col">Author: {{ $publication->author->first_name }} {{ $publication->author->last_name }}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">Category: {{ $publication->category->name }}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">ISBN: {{ $publication->isbn }}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">Published Date:{{ $publication->published_date }}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">Like</div>
-                                    <div class="col">Comment</div>
+                    <div class="col-md-6 col-lg-3 px-1 my-2 d-flex align-items-stretch">
+                        <div class="bg-white p-3 rounded shadow-sm w-100 d-flex flex-column align-items-center">
+                            <div class="mb-3">
+                                <form action="{{ route('publication_user.view', $publication->id) }}" method="GET" class="w-100">
+                                    <button type="submit" style="background: none; border: none; padding: 0;">
+                                        <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Image-Description" class="img-fluid rounded" style="max-height: 200px; width: auto;">
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="text-center mb-2">
+                                <div class="line-clamp">
+                                    <h3 class="text-truncate mb-0">
+                                        <a href="{{ route('publication_user.view', $publication->id) }}" class="text-decoration-none text-dark">{{ $publication->pub_name }}</a>
+                                    </h3>
                                 </div>
                             </div>
-
-                        </div>
-
-
-                        <!-- <div class="card">
-                            <div class="card-header">
-                                <h5>{{ $publication->pub_name }}</h5>
-                            </div>
-
-                            <div class="card-body">
-                                <p>Publication Details</p>
-                                <ul>
-                                    <li>Name: {{ $publication->pub_name }}</li>
-                                    <li>Cover: {{ $publication->cover_picture }}</li>
-                                    <li>Author: {{ $publication->author }}</li>
-                                    <li>Category Name: {{ $publication->category->name }}</li>
-                                    <li>ISBN Number: {{ $publication->isbn }}</li>
-                                    <li>Published Date: {{ $publication->published_date }}</li>
-                                    <li>Like Button</li>
-                                    <li>Comment Button</li>
-                                </ul>
-                                <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Image Description" class="img-fluid" height="100" width="100">
+                            <div class="text-center">
+                                <h5 class="text-muted mb-0">{{ $publication->author->first_name }} {{ $publication->author->last_name }}</h5>
                             </div>
                         </div>
-                        <br> -->
-
-
                     </div>
                     @endforeach
-                    @endif
-                    @endauth
                 </div>
+                @endif
+                @endauth
             </div>
         </div>
     </div>

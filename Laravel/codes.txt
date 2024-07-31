@@ -101,5 +101,5 @@ author can edit his profile/profile public
 class diagram for group project - DONE
 add image for author creation
 profile own edit
-like/comment models
-single publication view
+like/comment models DONE
+single publication view DONE
