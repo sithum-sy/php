@@ -53,8 +53,8 @@
                                 </form>
                             </div>
                             <div class="text-center mb-2">
-                                <div class="line-clamp">
-                                    <h3 class="text-truncate mb-0">
+                                <div>
+                                    <h3 class="mb-0">
                                         <a href="{{ route('publication_user.view', $publication->id) }}" class="text-decoration-none text-dark">{{ $publication->pub_name }}</a>
                                     </h3>
                                 </div>
@@ -62,6 +62,16 @@
                             <div class="text-center">
                                 <h5 class="text-muted mb-0">{{ $publication->author->first_name }} {{ $publication->author->last_name }}</h5>
                             </div>
+
+                            <div class="mt-3 text-center">
+                                <!-- <h4>Average Rating:</h4> -->
+                                <div class="star-rating">
+                                    @for ($i = 1; $i <= 5; $i++) <span class="{{ $i <= $publication->averageRating() ? 'filled' : '' }}">&#9733;</span>
+                                        @endfor
+                                </div>
+                                <p>{{ number_format($publication->averageRating(), 1) }} ({{ $publication->ratingCount() }} {{ Str::plural('rating', $publication->ratingCount()) }})</p>
+                            </div>
+
                         </div>
                     </div>
                     @endforeach

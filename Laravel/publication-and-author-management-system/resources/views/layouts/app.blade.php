@@ -34,7 +34,6 @@
             text-overflow: ellipsis;
             word-wrap: break-word;
             /* Ensures long words break correctly */
-            overflow: hidden;
         }
 
         .image-container {
@@ -57,6 +56,33 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .star-rating {
+            font-size: 1.5em;
+        }
+
+        .star-rating span {
+            color: lightgray;
+        }
+
+        .star-rating span.filled {
+            color: gold;
+        }
+
+        .star-rating .half-star {
+            color: gold;
+            font-size: 1.2em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .star-rating .half-star::before {
+            content: '\2605';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: lightgray;
         }
     </style>
 

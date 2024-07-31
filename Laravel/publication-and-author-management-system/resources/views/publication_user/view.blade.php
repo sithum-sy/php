@@ -64,6 +64,24 @@
                         </form>
                     </div>
 
+                    <!-- Rating Form -->
+                    @auth
+                    <form action="{{ route('rating.store', $publication->id) }}" method="POST" class="mt-4">
+                        @csrf
+                        <div class="form-group">
+                            <label for="rating">Rate this publication:</label>
+                            <select name="rating" id="rating" class="form-control" required>
+                                <option value="">Select rating</option>
+                                @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
+                                    @endfor
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit Rating</button>
+                    </form>
+                    @else
+                    <p>Please <a href="{{ route('login') }}">login</a> to rate this publication.</p>
+                    @endauth
+
                     <br>
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
