@@ -23,7 +23,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">by {{ $publication->author->first_name }} {{ $publication->author->last_name }}</h6>
                     <p class="card-text">Category: {{ $publication->category->name }}</p>
                     <p class="card-text">ISBN: {{ $publication->isbn }}</p>
-                    <a href="#" class="btn btn-primary">Buy Now</a>
+                    <!-- <a href="#" class="btn btn-primary">Buy Now</a> -->
 
                 </div>
                 <div class="card-body">
@@ -55,12 +55,12 @@
                 <button type="submit" class="btn btn-primary mt-2">Submit Rating</button> -->
 
                 <div class="details col-md-6">
-                    <h3 class="product-title">Laravel 5.5 Ratting System</h3>
+                    <h3 class="product-title">Rate this book</h3>
                     <div class="rating">
                         <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $publication->userAverageRating }}" data-size="xs">
                         <input type="hidden" name="id" required="" value="{{ $publication->id }}">
                         <br />
-                        <button class="btn btn-success">Submit Review</button>
+                        <button class="btn btn-success">Submit</button>
                     </div>
                 </div>
             </form>
@@ -73,7 +73,6 @@
 
     </div>
 </div>
-
 @endsection
 
 @section('scripts')

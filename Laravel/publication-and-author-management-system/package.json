@@ -14,6 +14,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "bootstrap-star-rating": "^4.1.2",
+        "jquery": "^3.7.1",
         "webkit": "^0.0.0"
     }
 }

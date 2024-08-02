@@ -7,10 +7,11 @@
     "require": {
         "php": "^8.2",
         "cviebrock/eloquent-sluggable": "^11.0",
+        "kartik-v/bootstrap-star-rating": "dev-master",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "nesbot/carbon": "^3.3",
-        "willvincent/laravel-rateable": "^3.3"
+        "willvincent/laravel-rateable": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
