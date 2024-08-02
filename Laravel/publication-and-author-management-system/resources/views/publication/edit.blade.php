@@ -56,7 +56,10 @@
                             <input type="file" class="form-control" id="cover_picture" name="cover_picture">
                         </div>
 
-
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="text" class="form-control" id="description" name="description">{{ $publication->description }}</textarea>
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>

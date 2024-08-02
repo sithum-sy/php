@@ -44,13 +44,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/publication-register', [PublicationController::class, 'registerPublication'])->name('publication-register');
     Route::post('/publication-register/store/', [PublicationController::class, 'store'])->name('publication.store');
     Route::get('/publication/author/{authorId}', [PublicationController::class, 'index'])->name('publication.all');
-    Route::get('publication/{id}/view', [PublicationController::class, 'view'])->name('publication.view');
+    Route::get('/publication/{id}/view', [PublicationController::class, 'view'])->name('publication.view');
     Route::get('/publication/{id}/edit', [PublicationController::class, 'edit'])->name('publication.edit');
     Route::put('/publication/{id}', [PublicationController::class, 'update'])->name('publication.update');
     Route::delete('/publication/{id}', [PublicationController::class, 'delete'])->name('publication.delete');
     Route::get('/publication/toggle-status/{id}', [PublicationController::class, 'toggleStatus'])->name('publication.toggleStatus');
 
-    Route::get('publication/{id}/view', [PublicationController::class, 'userSinglePubView'])->name('publication_user.view');
+    Route::get('publication/{id}/user_view', [PublicationController::class, 'userSinglePubView'])->name('publication_user.view');
     Route::post('publication/{publication}/like', [LikeController::class, 'toggleLike'])->name('publications_user.like');
     Route::post('publication/{publication}/comments', [CommentController::class, 'storeComment'])->name('publications_user.comments');
 

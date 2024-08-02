@@ -29,6 +29,7 @@ class publicationController extends Controller
             'isbn' => ['required', 'string', 'max:100'],
             'published_date' => ['required', 'date'],
             'cover_picture' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'description' => 'nullable|string'
         ]);
 
         if ($validator->fails()) {
@@ -49,7 +50,8 @@ class publicationController extends Controller
             'category_id' => $request->category_id,
             'isbn' => $request->isbn,
             'published_date' => $request->published_date,
-            'cover_picture' => $fileName
+            'cover_picture' => $fileName,
+            'description' => $request->description
         ]);
 
         return redirect()->route('publication.all', ['authorId' => Auth::id()])->with(
@@ -81,6 +83,7 @@ class publicationController extends Controller
             'isbn' => ['required', 'string', 'max:100'],
             'published_date' => ['required', 'date'],
             'cover_picture' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'description' => 'nullable|string'
         ]);
 
         $publication = Publication::findOrFail($id);
@@ -105,6 +108,7 @@ class publicationController extends Controller
         $publication->category_id = $validatedData['category_id'];
         $publication->isbn = $validatedData['isbn'];
         $publication->published_date = $validatedData['published_date'];
+        $publication->description = $validatedData['description'];
         // $publication->cover_picture = $validatedData['cover_picture'];
         // $publication->gender = $validatedData['gender'];
 

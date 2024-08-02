@@ -33,6 +33,12 @@
                             <label for="cover_picture" class="col-md-4 col-form-label text-md-end">{{ __('Cover:') }}</label>
                             <label for="cover_picture" class="col-4 col-form-label ">{{ $publication->cover_picture }}</label>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description:') }}</label>
+                            <label for="description" class="col-4 col-form-label ">{{ $publication->description }}</label>
+                        </div>
+
                         <div class="col-12 col-md-8 text-center">
                             <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Image Description" class="img-fluid" style="max-width: 50%;">
                         </div>

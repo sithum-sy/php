@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class publication extends Model
 {
-    use HasFactory;
+    use HasFactory, Rateable;
 
     protected $fillable = [
         'pub_name',
@@ -16,6 +17,7 @@ class publication extends Model
         'isbn',
         'published_date',
         'cover_picture',
+        'description'
     ];
 
     public function category()

@@ -1,97 +1,103 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col">
+
+
+<!-- resources/views/book.blade.php -->
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Cover Image and Book Details -->
+        <div class="col-md-4 col-lg-3">
             <div class="card">
-                <div class="card-header">
-                    <h2 class="my-2 text-center">{{ $publication->pub_name }}</h2>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">Author:</label>
-                        <div class="col-md-4 col-form-label">{{ $publication->author->first_name }} {{ $publication->author->last_name }}</div>
-                    </div>
+                <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" class="card-img-top img-fluid" alt="{{ $publication->pub_name }}">
 
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">ISBN:</label>
-                        <div class="col-md-4 col-form-label">{{ $publication->isbn }}</div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">Published Date:</label>
-                        <div class="col-md-4 col-form-label">{{ $publication->published_date }}</div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">Category:</label>
-                        <div class="col-md-4 col-form-label">{{ $publication->category->name }}</div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <label class="col-md-4 col-form-label text-md-end">Cover:</label>
-                        <div class="col-md-4 col-form-label">
-                            <img src="{{ asset('uploads/covers/' . $publication->cover_picture) }}" alt="Cover Image" class="img-fluid" style="max-width: 50%;">
-                        </div>
-                    </div>
-
-                    <form action="{{ route('publications_user.like', $publication->id) }}" method="POST" id="like-form">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">
-                            {{ $publication->likes()->where('user_id', auth()->id())->exists() ? 'Unlike' : 'Like' }}
-                        </button>
-                        <span class="badge badge-light like-count" id="like-count-{{ $publication->id }}">{{ $publication->likes->count() }}</span>
-                    </form>
-
-                    <div class="comment-section mt-4">
-                        <h6>Comments</h6>
-                        <div id="comments-{{ $publication->id }}">
-                            @foreach($publication->comments as $comment)
-                            <div class="comment">
-                                <p><strong>{{ $comment->user->name }}</strong> says:</p>
-                                <p>{{ $comment->content }}</p>
-                                <small>{{ $comment->created_at->diffForHumans() }}</small>
-                            </div>
-                            @endforeach
-                        </div>
-                        <form action="{{ route('publications_user.comments', $publication->id) }}" method="POST" id="comment-form-{{ $publication->id }}">
-                            @csrf
-                            <div class="form-group">
-                                <textarea class="form-control" name="content" rows="3" placeholder="Add a comment..." required></textarea>
-                            </div><br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-
-                    <!-- Rating Form -->
-                    @auth
-                    <form action="{{ route('rating.store', $publication->id) }}" method="POST" class="mt-4">
-                        @csrf
-                        <div class="form-group">
-                            <label for="rating">Rate this publication:</label>
-                            <select name="rating" id="rating" class="form-control" required>
-                                <option value="">Select rating</option>
-                                @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}">{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
-                                    @endfor
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-2">Submit Rating</button>
-                    </form>
-                    @else
-                    <p>Please <a href="{{ route('login') }}">login</a> to rate this publication.</p>
-                    @endauth
-
-                    <br>
-                    <div class="row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <a class="btn btn-secondary" href="{{ route('home') }}">
-                                << Go Back</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
+        <!-- Book Description -->
+        <div class="col-md-8 col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $publication->pub_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">by {{ $publication->author->first_name }} {{ $publication->author->last_name }}</h6>
+                    <p class="card-text">Category: {{ $publication->category->name }}</p>
+                    <p class="card-text">ISBN: {{ $publication->isbn }}</p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Description</h5>
+                    <p class="card-text" id="description-text">{{ $publication->description }}</p>
+                    <!-- Read More / Collapse Section -->
+                    <!-- @if(strlen($publication->description) > 500)
+                    <a href="#" id="read-more" class="btn btn-link">Read More</a>
+                    @endif -->
+                </div>
+            </div>
+
+            <!-- Rating Form -->
+
+
+            @auth
+            <form action="{{ route('rating.store', $publication->id) }}" method="POST" class="mt-4">
+                @csrf
+                <!-- <div class="form-group">
+                    <label for="rating">Rate this publication:</label>
+                    <div class="rating">
+                        @for ($i = 1; $i <= 5; $i++) <input type="radio" id="star{{ $i }}" name="rating" value="{{ $i }}" required>
+                            <label for="star{{ $i }}" title="{{ $i }} star{{ $i > 1 ? 's' : '' }}">
+                                <i class="fa fa-star"></i>
+                            </label>
+                            @endfor
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Submit Rating</button> -->
+
+                <div class="details col-md-6">
+                    <h3 class="product-title">Laravel 5.5 Ratting System</h3>
+                    <div class="rating">
+                        <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $publication->userAverageRating }}" data-size="xs">
+                        <input type="hidden" name="id" required="" value="{{ $publication->id }}">
+                        <br />
+                        <button class="btn btn-success">Submit Review</button>
+                    </div>
+                </div>
+            </form>
+            @else
+            <p>Please <a href="{{ route('login') }}">login</a> to rate this publication.</p>
+            @endauth
+        </div>
+
+
+
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const readMoreBtn = document.getElementById('read-more');
+        const descriptionText = document.getElementById('description-text');
+
+        if (readMoreBtn) {
+            readMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (descriptionText.style.maxHeight) {
+                    descriptionText.style.maxHeight = null;
+                    readMoreBtn.textContent = 'Read More';
+                } else {
+                    descriptionText.style.maxHeight = descriptionText.scrollHeight + 'px';
+                    readMoreBtn.textContent = 'Read Less';
+                }
+            });
+
+            // Set initial max-height for collapse effect
+            descriptionText.style.maxHeight = '150px'; // Adjust as needed
+            descriptionText.style.overflow = 'hidden';
+        }
+    });
+</script>
 @endsection

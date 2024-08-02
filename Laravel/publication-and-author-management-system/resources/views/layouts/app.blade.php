@@ -12,6 +12,14 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -83,6 +91,41 @@
             left: 50%;
             transform: translateX(-50%);
             color: lightgray;
+        }
+
+        /* CSS for the rating stars */
+        .rating {
+            display: flex;
+            direction: row-reverse;
+            justify-content: center;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            color: #ddd;
+            font-size: 2rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rating input:checked~label {
+            color: #f39c12;
+            /* Color of the stars when selected */
+        }
+
+        .rating input:checked~input~label {
+            color: #f39c12;
+            /* Color of all stars to the left of the selected star */
+        }
+
+        .rating label:hover,
+        .rating label:hover~label {
+            color: #f39c12;
+            /* Color of the stars on hover */
         }
     </style>
 
