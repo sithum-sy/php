@@ -6,6 +6,19 @@
 <!-- resources/views/book.blade.php -->
 
 <div class="container mt-5">
+
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
+
     <div class="row">
         <!-- Cover Image and Book Details -->
         <div class="col-md-4 col-lg-3">
@@ -60,7 +73,7 @@
                         <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $publication->userAverageRating }}" data-size="xs">
                         <input type="hidden" name="id" required="" value="{{ $publication->id }}">
                         <br />
-                        <button class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success  mt-2">Submit</button>
                     </div>
                 </div>
             </form>

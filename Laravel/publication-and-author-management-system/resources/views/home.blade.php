@@ -65,17 +65,26 @@
 
                             <div class="mt-3 text-center">
                                 <!-- <h4>Average Rating:</h4> -->
-                                <div class="star-rating">
+                                <!-- <div class="star-rating">
                                     @for ($i = 1; $i <= 5; $i++) <span class="{{ $i <= $publication->averageRating() ? 'filled' : '' }}">&#9733;</span>
                                         @endfor
                                 </div>
-                                <p>{{ number_format($publication->averageRating(), 1) }} ({{ $publication->ratingCount() }} {{ Str::plural('rating', $publication->ratingCount()) }})</p>
+                                <p>{{ number_format($publication->averageRating(), 1) }} ({{ $publication->ratingCount() }} {{ Str::plural('rating', $publication->ratingCount()) }})</p> -->
+                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $publication->averageRating }}" data-size="xs" disabled="">
                             </div>
 
                         </div>
                     </div>
                     @endforeach
                 </div>
+
+                <!-- Pagination Links -->
+                <div class="d-flex justify-content-center mt-4">
+                    <div>
+                        {{ $publications->links('vendor.pagination.bootstrap-4') }}
+                    </div>
+                </div>
+
                 @endif
                 @endauth
             </div>

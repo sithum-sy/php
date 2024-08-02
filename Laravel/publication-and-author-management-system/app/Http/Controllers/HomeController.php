@@ -30,6 +30,9 @@ class HomeController extends Controller
         $publications = Publication::all();
         // $categories = Category::find($id);
         $publications = Publication::with('category')->get();
+
+        // Get paginated publications, 8 per page
+        $publications = Publication::paginate(8);
         // dd($publications);
         return view('home', ['publications' => $publications]);
     }

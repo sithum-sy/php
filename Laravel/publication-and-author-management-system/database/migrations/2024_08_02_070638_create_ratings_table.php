@@ -17,10 +17,9 @@ class CreateRatingsTable extends Migration
             $table->integer('rating');
             $table->text('comment')->nullable();
             $table->morphs('rateable');
-            $table->bigInteger('user_id')->unsigned();
-            $table->index('rateable_id');
-            $table->index('rateable_type');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->index('rateable_id')->nullable();
+            $table->index('rateable_type')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
             $table->foreignId('publication_id')->constrained()->onDelete('cascade');
         });
     }
