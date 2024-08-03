@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/publication/toggle-status/{id}', [PublicationController::class, 'toggleStatus'])->name('publication.toggleStatus');
 
     Route::get('publication/{id}/user_view', [PublicationController::class, 'userSinglePubView'])->name('publication_user.view');
-    Route::post('publication/{publication}/like', [LikeController::class, 'toggleLike'])->name('publications_user.like');
+    Route::get('publication/{publication}/like', [LikeController::class, 'toggleLike'])->name('publications_user.like');
     Route::post('publication/{publication}/comments', [CommentController::class, 'storeComment'])->name('publications_user.comments');
 
     Route::post('/ratings/{publication}', [RatingController::class, 'store'])->name('rating.store');

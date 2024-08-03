@@ -13,11 +13,11 @@ class Like extends Model
 
     public function publication()
     {
-        return $this->belongsTo(Publication::class);
+        return $this->belongsTo(Publication::class, 'publication_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

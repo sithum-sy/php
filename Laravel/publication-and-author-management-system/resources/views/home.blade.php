@@ -73,6 +73,11 @@
                                 <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $publication->averageRating }}" data-size="xs" disabled="">
                             </div>
 
+                            <div class="mt-3 text-center">
+                                <a href="{{ route('publications_user.like', $publication->id) }}" class="btn btn-primary btn-sm mb-3"><span>{{ $publication->likes->count() }} </span>{{ $publication->likes->count() > 1 ? 'Likes' : 'Like' }}</a>
+                                <a href="{{ route('publications_user.comments', $publication->id) }}" class="btn btn-primary btn-sm mb-3"><span>Count </span>Comment</a>
+                            </div>
+
                         </div>
                     </div>
                     @endforeach
