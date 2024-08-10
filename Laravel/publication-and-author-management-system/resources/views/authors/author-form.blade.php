@@ -103,7 +103,6 @@
                                     <label for="male">
                                         Male
                                     </label>
-
                                     <input id="female" type="radio" class="form-check-input @error('address') is-invalid @enderror" name="gender" value="{{ 'female' }}" required autocomplete="gender" autofocus>
                                     <label for="male">
                                         Female

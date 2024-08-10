@@ -52,6 +52,8 @@ to seed - php artisan db:seed
 
 to create a symbolic link - php artisan storage:link
 
+to create middleware - php artisan make:middleware CheckAdminUserRole
+
 ADDING SLUGS
    1. composer require cviebrock/eloquent-sluggable
    2. php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
