@@ -54,6 +54,8 @@ to create a symbolic link - php artisan storage:link
 
 to create middleware - php artisan make:middleware CheckAdminUserRole
 
+to create a data factory - php artisan make:factory PublicationFactory --model=Publication
+
 ADDING SLUGS
    1. composer require cviebrock/eloquent-sluggable
    2. php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
@@ -97,11 +99,4 @@ ADDING SLUGS
 
 HomeWork
 
-add crud for publication - DONE
-add profile section
-author can edit his profile/profile public
-class diagram for group project - DONE
-add image for author creation
-profile own edit
-like/comment models DONE
-single publication view DONE
+category query

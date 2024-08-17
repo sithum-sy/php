@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Publication;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,8 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(AdminUsersSeeder::class);
+        // $this->call(AdminUsersSeeder::class);
 
         // $this->call(CategoriesSeeder::class);
+
+        Publication::factory()->count(3)->create();
     }
 }

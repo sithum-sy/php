@@ -62,5 +62,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('publications/{publication}/comments', [CommentController::class, 'storeComment'])->name('publications_user.comments');
 
         Route::post('/ratings/{publication}', [RatingController::class, 'store'])->name('rating.store');
+
+        Route::get('publications/search/', [PublicationController::class, 'search'])->name('publications.search');
+        Route::get('publications/filter/', [PublicationController::class, 'filter'])->name('publications.filter');
     });
 });

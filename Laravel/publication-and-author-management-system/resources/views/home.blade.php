@@ -42,6 +42,38 @@
                 @else (Auth::user()->role === 'reader')
                 <div class="row bg-light mx-2 p-3">
                     <h2 class="text-center mb-4">All Publications</h2>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <form action="{{ route('publications.search') }}" method="get">
+                                <div class="input-group">
+                                    <input type="text" name="query" id="" value="{{ request()->input('query') }}" class="form-control" placeholder="Search for publications...">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <form action="{{ route('publications.filter') }}" method="get">
+                                <div class="input-group">
+                                    <input type="text" name="query" id="" value="{{ request()->input('query') }}" class="form-control" placeholder="Search for publications...">
+                                    <select name="author_id" class="form-control mx-2" id="">
+                                        <option value="">All Authors</option>
+                                        @foreach($authors as $author)
+                                        <option value="{{ $author->id }}" {{ request()->input('author_id') == $author->id ? 'selected': ''}}>
+                                            {{$author->first_name}} {{$author->last_name}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     @foreach ($publications as $publication)
                     <div class="col-md-6 col-lg-3 px-1 my-2 d-flex align-items-stretch">
                         <div class="bg-white p-3 rounded shadow-sm w-100 d-flex flex-column align-items-center">

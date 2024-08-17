@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Publication;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,7 +34,14 @@ class HomeController extends Controller
 
         // Get paginated publications, 8 per page
         $publications = Publication::paginate(8);
+
+        $publications = Publication::latest()->get();
+        $authors = User::where('role', User::USER_ROLE_AUTHOR)->get();
+
         // dd($publications);
-        return view('home', ['publications' => $publications]);
+        return view('home', [
+            'publications' => $publications,
+            'authors' => $authors
+        ]);
     }
 }

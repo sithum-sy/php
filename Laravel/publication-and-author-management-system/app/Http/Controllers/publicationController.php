@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Publication;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -143,5 +144,29 @@ class publicationController extends Controller
     {
         $publication = Publication::findOrFail($id);
         return view('publication_user.view', ['publication' => $publication]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $publications = Publication::where('pub_name', 'like', '%' . $query . '%')->paginate();
+        $authors = User::where('role', User::USER_ROLE_AUTHOR)->get();
+        return view('home', compact('publications', 'authors'));
+    }
+
+    public function filter(Request $request)
+    {
+        $query = $request->input('query');
+        $authorId = $request->input('author_id');
+
+        $publications = Publication::query()->when($query, function ($queryBuilder) use ($query) {
+            $queryBuilder->where('pub_name', 'like', '%' . $query . '%');
+        })->when($authorId, function ($queryBuilder) use ($authorId) {
+            $queryBuilder->where('author_id', $authorId);
+        })->latest()->paginate();
+
+        $authors = User::where('role', User::USER_ROLE_AUTHOR)->get();
+
+        return view('home', compact('publications', 'authors'));
     }
 }
