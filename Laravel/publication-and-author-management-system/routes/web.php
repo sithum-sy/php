@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('publications/{id}/user_view', [PublicationController::class, 'userSinglePubView'])->name('publication_user.view');
         Route::get('publications/{publication}/like', [LikeController::class, 'toggleLike'])->name('publications_user.like');
         Route::post('publications/{publication}/comments', [CommentController::class, 'storeComment'])->name('publications_user.comments');
+        Route::get('publications/{publication}/sample-comments', [CommentController::class, 'storeCommentTest'])->name('publications_user.sampleComments'); //Need to fix
 
         Route::post('/ratings/{publication}', [RatingController::class, 'store'])->name('rating.store');
 

@@ -56,6 +56,12 @@ to create middleware - php artisan make:middleware CheckAdminUserRole
 
 to create a data factory - php artisan make:factory PublicationFactory --model=Publication
 
+to create email notification - php artisan make:mail CommentNotificationMail
+
+to create email notification based on time - php artisan make:command SendDailySummary
+
+send email update - php artisan email:send-daily-summary
+
 ADDING SLUGS
    1. composer require cviebrock/eloquent-sluggable
    2. php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
@@ -91,6 +97,7 @@ ADDING SLUGS
 
 
 
+                        {{ $publications->links('vendor.pagination.bootstrap-4') }}
 
 
 

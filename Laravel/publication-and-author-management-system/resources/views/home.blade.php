@@ -106,8 +106,12 @@
                             </div>
 
                             <div class="mt-3 text-center">
-                                <a href="{{ route('publications_user.like', $publication->id) }}" class="btn btn-primary btn-sm mb-3"><span>{{ $publication->likes->count() }} </span>{{ $publication->likes->count() > 1 ? 'Likes' : 'Like' }}</a>
-                                <a href="{{ route('publications_user.comments', $publication->id) }}" class="btn btn-primary btn-sm mb-3"><span>Count </span>Comment</a>
+                                <a href="{{ route('publications_user.like', $publication->id) }}" class="btn btn-primary btn-sm mb-3">
+                                    <span>{{ $publication->likes->count() }} </span>{{ $publication->likes->count() > 1 ? 'Likes' : 'Like' }}</a>
+                                <a href="{{ route('publications_user.comments', $publication->id) }}" class="btn btn-primary btn-sm mb-3">
+                                    <span>Count </span>Comment</a>
+                                <a href="{{ route('publications_user.sampleComments', $publication->id) }}">Add New Comment</a>
+
                             </div>
 
                         </div>
@@ -118,7 +122,6 @@
                 <!-- Pagination Links -->
                 <div class="d-flex justify-content-center mt-4">
                     <div>
-                        {{ $publications->links('vendor.pagination.bootstrap-4') }}
                     </div>
                 </div>
 
